@@ -4,7 +4,7 @@ import requests
 import json
 import random
 import string
-from Colorama import Fore
+from colorama import Fore
 
 rojo = Fore.RED
 verde = Fore.GREEN
