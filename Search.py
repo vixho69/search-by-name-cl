@@ -5,10 +5,13 @@ import json
 import random
 import string
 from Colorama import Fore
+
 rojo = Fore.RED
 verde = Fore.GREEN
 amarillo = Fore.YELLOW
+
 ID = "".join(random.sample(string.ascii_letters, k=2))
+
 logo = amarillo + """
 ███████╗███████╗ █████╗ ██████╗  ██████╗██╗  ██╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗     ██████╗██╗     
 ██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝██║  ██║    ████╗  ██║██╔══██╗████╗ ████║██╔════╝    ██╔════╝██║     
