@@ -9,7 +9,7 @@ rojo = Fore.RED
 verde = Fore.GREEN
 amarillo = Fore.YELLOW
 ID = "".join(random.sample(string.ascii_letters, k=2))
-logo = amarillo+"""
+logo = amarillo + """
 ███████╗███████╗ █████╗ ██████╗  ██████╗██╗  ██╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗     ██████╗██╗     
 ██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝██║  ██║    ████╗  ██║██╔══██╗████╗ ████║██╔════╝    ██╔════╝██║     
 ███████╗█████╗  ███████║██████╔╝██║     ███████║    ██╔██╗ ██║███████║██╔████╔██║█████╗      ██║     ██║     
@@ -17,9 +17,9 @@ logo = amarillo+"""
 ███████║███████╗██║  ██║██║  ██║╚██████╗██║  ██║    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╗███████╗
 ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝╚══════╝
 
-                                       By: Kiddo.Kid
-"""+Fore.RESET
-nombre1 = input("Ingresa un nombre a buscar: ")
+                                       By: little.kid
+""" + Fore.RESET
+nombre1 = input("Enter a name to search: ")
 
 url = 'https://rutificador.net/wp-search/nombre.php'
 
@@ -27,7 +27,7 @@ payload = {'nombre': nombre1}
 
 headers = {
     'Host': 'rutificador.net',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/115.0',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14) AppleWebKit/616.13 (KHTML, like Gecko) Version/17.7.21 Safari/616.13',
     'Accept': '*/*',
     'Accept-Language': 'en-US,en;q=0.5',
     'Accept-Encoding': 'gzip, deflate, br',
@@ -43,7 +43,7 @@ response = requests.post(url, headers=headers, data=payload)
 
 with open("archivo.html", "a") as l:
     pass
-
+#Hola, xd.
 if response.status_code == 200:
     html = response.text
     soup = BeautifulSoup(html, 'html.parser')
@@ -67,10 +67,10 @@ if response.status_code == 200:
                 'Ciudad': ciudad
             })
     for persona in datos:
-        print(verde+f"RUT: {persona['RUT']}, Nombre: {persona['Nombre']}, Edad: {persona['Edad Aprox.']}, Sexo: {persona['Sexo']}, Domicilio: {persona['Domicilio']}, Ciudad: {persona['Ciudad']}")
-    with open(f"resultado_{ID}.json", "w", encoding='utf-8') as json_file:
+        print(verde+f"DNI: {persona['RUT']}, Name: {persona['Nombre']}, Age: {persona['Edad Aprox.']}, Gender: {persona['Sexo']}, Home: {persona['Domicilio']}, City: {persona['Ciudad']}")
+    with open(f"results_{ID}.json", "w", encoding='utf-8') as json_file:
         json.dump(datos, json_file, ensure_ascii=False, indent=4)
     os.remove("archivo.html")
 
 else:
-    print(rojo+f"Error al realizar la solicitud. Codigo de estado: {response.status_code}")
+    print(rojo + f"Error when making the request. status code: {response.status_code}")
